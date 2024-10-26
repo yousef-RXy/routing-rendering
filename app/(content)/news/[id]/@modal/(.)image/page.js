@@ -1,8 +1,10 @@
+'use client';
 import { DUMMY_NEWS } from '@/dummy-news';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 
 export default function ImagePage({ params }) {
   const newsItem = DUMMY_NEWS.find(newsItem => newsItem.slug === params.id);
+  const router = useRouter();
 
   if (!newsItem) {
     notFound();
@@ -10,8 +12,8 @@ export default function ImagePage({ params }) {
 
   return (
     <>
-      <div className="modal-backdrop" />
-      <dialog className="modal" open>
+      <div className="modal-backdrop" onClick={router.back} />
+      <dialog className="modal" open onClose={router.back}>
         <div className="fullscreen-image">
           <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
         </div>
