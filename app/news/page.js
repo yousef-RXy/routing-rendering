@@ -5,7 +5,7 @@ export default function NewsPage() {
   return (
     <>
       <h1>News Page</h1>
-      <NewsList DUMMY_NEWS={DUMMY_NEWS} />
+      <NewsList news={DUMMY_NEWS} />
     </>
   );
 }
