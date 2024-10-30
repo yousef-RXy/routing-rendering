@@ -1,9 +1,9 @@
 'use client';
-function error() {
+function error({ error }) {
   return (
     <div id="error">
       <h2>An Error Occurred</h2>
-      <p>invalid Path</p>
+      <p>{error.message}</p>
     </div>
   );
 }
